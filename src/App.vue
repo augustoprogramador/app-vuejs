@@ -4,6 +4,12 @@
     v-for="(item, index) in todos"
     v-bind:key="item.id"
   >
+    <div>
+      <img 
+        :src="item.imgSrc"
+        v-bind:alt="item.imgAlt"
+      />
+    </div>
     {{ index }} - {{ item.title }}
   </div>
   <img alt="Vue logo" src="./assets/logo.png">
@@ -25,13 +31,17 @@ export default {
           "userId": 1,
           "id": 1,
           "title": "delectus aut autem",
-          "completed": false
+          "completed": false,
+          "imgSrc": "https://placehold.co/150",
+          "imgAlt": "Lorem ipsum dolor."
         },
         {
           "userId": 1,
           "id": 2,
           "title": "quis ut nam facilis et officia qui",
-          "completed": false
+          "completed": false,
+          "imgSrc": "https://placehold.co/150",
+          "imgAlt": "Lorem ipsum dolor."
         },
         {
           "userId": 1,
