@@ -1,4 +1,16 @@
 <template>
+  <h3
+    :class="{'title-home': isHome}"
+  >
+    Curso Vue 3
+  </h3>
+
+  <p
+    :class="[{'text': false}, 'text2']"
+  >
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum provident iusto velit tempore nobis quis.
+  </p>
+
   <div 
     class="todo-item"
     v-for="(item, index) in todos"
@@ -26,6 +38,9 @@ export default {
   },
   data() {
     return {
+      classVar: 'title',
+      pClasses: 'text',
+      isHome: true,
       todos: [
         {
           "userId": 1,
@@ -68,6 +83,23 @@ export default {
 </script>
 
 <style>
+.text{
+  color: gray;
+}
+
+.text2{
+  font-weight: bolder;
+}
+
+.title-home {
+  font-size: 40px;
+  color: green;
+}
+
+.title {
+  color: blue;
+  font-size: 24px;
+}
 .todo-item {
   background-color: #000;
   color: #fff;
