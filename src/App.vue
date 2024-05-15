@@ -1,28 +1,65 @@
 <template>
-  <h3
-    :class="{'title-home': isHome}"
-  >
-    Curso Vue 3
-  </h3>
-
-  <p
-    :class="[{'text': false}, 'text2']"
-  >
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum provident iusto velit tempore nobis quis.
-  </p>
-
-  <div 
-    class="todo-item"
-    v-for="(item, index) in todos"
-    v-bind:key="item.id"
-  >
-    <div>
-      <img 
-        :src="item.imgSrc"
-        v-bind:alt="item.imgAlt"
-      />
-    </div>
-    {{ index }} - {{ item.title }}
+  
+  <div>
+    <input
+      v-model="name"
+      type="text"
+    >
+    <br/>
+    {{ name }}
+  </div>
+  
+  <div>
+    <input
+      v-model="pets"
+      type="checkbox"
+      id="cachorro"
+      value="Cachorro"
+    >
+    <label for="cachorro">Cachorro</label>
+    <br/>
+    <input
+      v-model="pets"
+      type="checkbox"
+      id="gato"
+      value="Gato"
+    >
+    <label for="gato">Gato</label>
+    <br/>
+    {{ pets }}
+  </div>
+  
+  <div>
+    <select 
+      name="tipo_residencia" 
+      id="tipo_residencia"
+      v-model="tipo_residencia"
+    >
+      <option value="">Escolha uma opção</option>
+      <option value="casa">Casa</option>
+      <option value="apartamento">Apartamento</option>
+      <option value="trailer">Trailer</option>
+    </select>
+    <br/>
+    {{ tipo_residencia }}
+  </div>
+  
+  <div>
+    <input
+      v-model="newsLetter"
+      type="radio"
+      name="newsLetter"
+      value="Sim"
+    >
+    <br/>
+    <input
+      v-model="newsLetter"
+      type="radio"
+      name="newsLetter"
+      value="Não"
+    >
+    <br/>
+    {{ newsLetter }}
   </div>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App" />
@@ -38,51 +75,21 @@ export default {
   },
   data() {
     return {
-      classVar: 'title',
-      pClasses: 'text',
-      isHome: true,
-      todos: [
-        {
-          "userId": 1,
-          "id": 1,
-          "title": "delectus aut autem",
-          "completed": false,
-          "imgSrc": "https://placehold.co/150",
-          "imgAlt": "Lorem ipsum dolor."
-        },
-        {
-          "userId": 1,
-          "id": 2,
-          "title": "quis ut nam facilis et officia qui",
-          "completed": false,
-          "imgSrc": "https://placehold.co/150",
-          "imgAlt": "Lorem ipsum dolor."
-        },
-        {
-          "userId": 1,
-          "id": 3,
-          "title": "fugiat veniam minus",
-          "completed": false
-        },
-        {
-          "userId": 1,
-          "id": 4,
-          "title": "et porro tempora",
-          "completed": true
-        },
-        {
-          "userId": 1,
-          "id": 5,
-          "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-          "completed": false
-        }
-      ]
+      name: 'Augusto Camargo',
+      pets: [],
+      tipo_residencia: '',
+      newsLetter: ''
     }
   }
 }
 </script>
 
 <style>
+
+div input {
+  margin: 15px;
+}
+
 .text{
   color: gray;
 }
