@@ -1,7 +1,9 @@
 <template>
-    <div :class="baseClass">
-        {{ this.test }} {{ this.text }}
-        <slot name="content"/>
+    <div class="container">
+        <div :class="baseClass">
+            <slot />
+            <button @click="close">X</button>
+        </div>
     </div>
 </template>
 
@@ -13,14 +15,6 @@
                 type: String,
                 default: '',
             },
-            text: {
-                type: String,
-                default: '',
-            },
-            test: {
-                type: String,
-                default: 'test',
-            }
         },
         computed: {
             baseClass() {
@@ -28,6 +22,11 @@
                     'alert',
                     this.variant ? `${this.variant}` : ''
                 ];
+            }
+        },
+        methods: {
+            close() {
+                this.$emit('close');
             }
         },
         beforeCreate() {console.log(this.variant)},
@@ -40,11 +39,16 @@
 </script>
 
 <style scoped>
+    .container {
+        display: flex;
+        justify-items: center;
+    }
     .alert {
         padding: 5px;
         border-radius: 6px;
         color: gray;
         background-color: #ddd;
+        max-width: 500px;
     }
     .success {
         background-color: #42b983;

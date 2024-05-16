@@ -1,9 +1,13 @@
 <template>
   <div>
-    <BaseAlert :variant="changeVariant" :text="text"/>
+    <BaseAlert 
+      :variant="changeVariant"
+      @close="closeAlert"
+      v-if="showAlert"
+    >
+      {{ text }}
+    </BaseAlert>
   </div>
-  <button @click="changeVariant = 'success'">Success</button>
-  <button @click="changeVariant = ''">Reset</button>
   
 </template>
 
@@ -19,9 +23,13 @@ export default {
     return {
       name: 'Augusto',
       showHeader: true,
-      changeVariant: '',
+      changeVariant: 'success',
       text: 'Seu formulário foi enviado!',
+      showAlert: true,
     }
+  },
+  methods: {
+    closeAlert() {this.showAlert = false;}
   },
 
   // HOOKS
@@ -37,8 +45,6 @@ export default {
   },
   computed: {
   },
-  methods: {
-  }
 }
 </script>
 
