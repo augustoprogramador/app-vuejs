@@ -1,5 +1,10 @@
 <template>
   <AppProducts/>
+  <br/>
+  <br/>
+
+  <pre>Total = {{ $store.getters.total }}</pre>
+  <br/>
   <button
     @click="alterar"
   >Alterar</button>

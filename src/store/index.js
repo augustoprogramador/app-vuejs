@@ -40,7 +40,10 @@ export default createStore({
       // console.log('cartAtualizado', state.cart);
     },
   },
-  getters: {
+  getters: { // computed do store
+    total(state) {
+      return state.cart.length > 0 ? state.cart.reduce((total, item) => total += item.price, 0) : 0;
+    }
   },
   actions: {
   },
