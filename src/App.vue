@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img @click="changeName()" alt="Vue logo" src="./assets/logo.png">
+  {{ name }}
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  // Alternativa ao option API que só pode criar atributos reativos
+  setup() { // composition API permite controlar o que desejamos que seja reativo
+    let name = 'Augusto';
+
+    const changeName = () => {
+      name = 'Augusto Camargo';
+    }
+
+    return {
+      name,
+      changeName,
+    }
   }
 }
 </script>
