@@ -16,8 +16,5 @@ export default {
     components: {
         AppProduct
     },
-    created() {
-        console.log(this.$store.state.products);
-    }
 }
 </script>

@@ -5,6 +5,10 @@
 
   <pre>Total = {{ $store.getters.total }}</pre>
   <br/>
+  <br/>
+  <br/>
+  {{ $store.state.user.firstName }} {{ $store.state.user.lastName }}
+  <br/>
   <button
     @click="alterar"
   >Alterar</button>
@@ -30,12 +34,10 @@ export default {
         lastName: 'Macedo',
         email: 'ludimila@macedo.com'
       }
-      this.$store.commit('storeUser', newUser);
+      // this.$store.commit('storeUser', newUser);
+      this.$store.dispatch('storeUser', newUser).then(() => console.log('terminou com sucesso'));
     }
   },
-  created() {
-    console.log(this.$store);
-  }
 }
 </script>
 
