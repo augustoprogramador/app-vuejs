@@ -1,23 +1,17 @@
 <template>
   <div>
-    <AppHeader>
-      <!-- <template v-slot:title>
-        Home
-      </template> -->
-      <template v-slot:description>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quaerat error consectetur sint, deleniti dicta praesentium maxime?</p>
-      </template>
-    </AppHeader>
+    <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quam pariatur maiores natus ipsum dolorem suscipit ducimus accusantium aliquam impedit eum est iure, maxime atque inventore dignissimos enim. Magni, veritatis.</div>
+    <BaseCard/>
   </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
+import BaseCard from './components/BaseCard.vue';
 
 export default {
   name: 'App',
   components: {
-    AppHeader
+    BaseCard
   },
   data() {
     return {
@@ -27,36 +21,12 @@ export default {
   },
 
   // HOOKS
-  // beforeCreate() {
-  //   console.log('beforeCreate', {
-  //     Estado: this.name,
-  //     DOM: this.$el
-  //   })
-  // },
-  // created() {
-  //   console.log('created', {
-  //     Estado: this.name,
-  //     DOM: this.$el
-  //   })
-  // },
-  // beforeMount() {
-  //   console.log('beforeMount', {
-  //     Estado: this.name,
-  //     DOM: this.$el
-  //   })
-  // },
-  // mounted() {
-  //   console.log('mounted', {
-  //     Estado: this.name,
-  //     DOM: this.$el
-  //   })
-  // },
-  beforeUpdate() {
-    console.log('beforeUpdate')
-  },
-  updated() {
-    console.log('updated')
-  },
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
 
 
   watch: {
