@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
@@ -10,9 +10,15 @@ export default createStore({
     products: [],
     cart: {},
   },
-  getters: {
-  },
   mutations: {
+    storeUser(state, data) {
+      console.log('data', data);
+      console.log('storeUser', state.user);
+      state.user = data;
+      console.log('atualizado', state.user);
+    },
+  },
+  getters: {
   },
   actions: {
   },

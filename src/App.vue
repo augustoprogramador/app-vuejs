@@ -1,5 +1,9 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  {{  }}
+  <button
+    @click="alterar"
+  >Alterar</button>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -14,6 +18,16 @@ export default {
   data() {
     return {
       
+    }
+  },
+  methods: {
+    alterar() {
+      const newUser = {
+        firstName: 'Ludimila',
+        lastName: 'Macedo',
+        email: 'ludimila@macedo.com'
+      }
+      this.$store.commit('storeUser', newUser);
     }
   },
   created() {
