@@ -7,15 +7,37 @@ export default createStore({
       lastName: 'Camargo',
       email: 'teste@1234.com'
     },
-    products: [],
-    cart: {},
+    products: [
+      {
+        id: 1,
+        name: 'Bola',
+        price: 100
+      },
+      {
+        id: 2,
+        name: 'Chuteira',
+        price: 150
+      },
+      {
+        id: 3,
+        name: 'Meião',
+        price: 50
+      },
+    ],
+    cart: [],
   },
   mutations: {
     storeUser(state, data) {
-      console.log('data', data);
-      console.log('storeUser', state.user);
       state.user = data;
-      console.log('atualizado', state.user);
+    },
+    addProduct(state, data) {
+      state.cart.push(data);
+    },
+    removeProduct(state, id) {
+      // console.log('cart', state.cart);
+      const removedItem = state.cart.findIndex(prod => prod.id === id);
+      state.cart.splice(removedItem, 1);
+      // console.log('cartAtualizado', state.cart);
     },
   },
   getters: {
