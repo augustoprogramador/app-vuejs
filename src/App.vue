@@ -4,12 +4,20 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      
+    }
+  },
+  created() {
+    console.log(this.$store);
   }
 }
 </script>
