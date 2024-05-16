@@ -1,22 +1,26 @@
 <template>
   <div>
-    <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quam pariatur maiores natus ipsum dolorem suscipit ducimus accusantium aliquam impedit eum est iure, maxime atque inventore dignissimos enim. Magni, veritatis.</div>
-    <BaseCard/>
+    <BaseAlert :variant="changeVariant" :text="text"/>
   </div>
+  <button @click="changeVariant = 'success'">Success</button>
+  <button @click="changeVariant = ''">Reset</button>
+  
 </template>
 
 <script>
-import BaseCard from './components/BaseCard.vue';
+import BaseAlert from '@/components/BaseAlert.vue';
 
 export default {
   name: 'App',
   components: {
-    BaseCard
+    BaseAlert
   },
   data() {
     return {
       name: 'Augusto',
-      showHeader: true
+      showHeader: true,
+      changeVariant: '',
+      text: 'Seu formulário foi enviado!',
     }
   },
 
