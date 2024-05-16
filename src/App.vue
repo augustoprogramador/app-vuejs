@@ -1,13 +1,13 @@
 <template>
   <div>
-    <AppHeader v-if="showHeader"/>
-    <h1>Hello World!</h1>
-    <button @click="showHeader = !showHeader">{{ showHeader ? 'Esconder' : 'Mostrar' }}</button>
-    <input 
-      type="text"
-      v-model="name"
-    >
-    {{ name }}
+    <AppHeader>
+      <!-- <template v-slot:title>
+        Home
+      </template> -->
+      <template v-slot:description>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quaerat error consectetur sint, deleniti dicta praesentium maxime?</p>
+      </template>
+    </AppHeader>
   </div>
 </template>
 

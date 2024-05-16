@@ -1,5 +1,13 @@
 <template>
-  <div class="header">Headerrrr</div>
+  <header>
+    <h1 v-if="$slots.title">
+      <slot name="title"/>
+    </h1>
+  </header>
+  <p class="description">
+    <slot name="description"/>
+  </p>
+  <slot/>
 </template>
 
 <script>
@@ -27,8 +35,14 @@ export default {
 </script>
 
 <style>
-.header {
+header {
   color: white;
   background-color: black;
 }
+
+p.description {
+  color:darkcyan;
+  font-size: 24px;
+}
+
 </style>
