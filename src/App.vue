@@ -1,38 +1,29 @@
 <template>
-  <input v-model="user.firstName" type="text" @keyup="digitei">
-  <input v-model="user.lastName" type="text" @keyup="digitei">
-  <h1>{{ fullName }}</h1>
-
-  <h2>Todos Incompletas</h2>
-  <div 
-    v-for="todo in unfinishedTodos"
-    v-bind:key="todo.id"
-  >
-    {{ todo.title }}
-  </div>
-
-  <h2>Todos Completas</h2>
-  <div 
-    v-for="todo in finishedTodos"
-    v-bind:key="todo.id"
-  >
-    {{ todo.title }}
-  </div>
-
-  <h2>Todos</h2>
-  <div 
-    v-for="todo in todos"
-    v-bind:key="todo.id"
-  >
+  <div>
     <input 
-      type="checkbox" 
-      :id="`todo-${todo.id}`"
-      :value="todo.completed"
-      v-model="todo.completed"
-      :disabled="todo.completed"
+      type="text"
+      v-model="name"
     >
-    <label :for="`todo-${todo.id}`">{{ todo.title }}</label>
+    <br/>
+    {{ name }}
   </div>
+  <h1>User</h1>
+  <div>
+    <input 
+      type="text"
+      v-model="user.firstName"
+    >
+    <br/>
+    {{ user.firstName }}
+  </div>
+  <br/>
+  <label for="paginacao">Paginação</label>
+  <select v-model="pageCount" name="paginacao" id="paginacao">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+  </select>
+  {{ pageCount }}
 </template>
 
 <script>
@@ -43,6 +34,8 @@ export default {
   },
   data() {
     return {
+      name: '',
+      pageCount: 0,
       user: {
         firstName: 'Augusto',
         lastName: 'Camargo',
@@ -81,6 +74,24 @@ export default {
       ]
     }
   },
+  watch: { // Observer
+    // name(newValue, oldValue) {
+    //   console.log(newValue, oldValue);
+    // },
+    name(value) {
+      if (value.length >= 3)
+        this.saveUserName();
+    },
+    pageCount() {
+      this.changePageCount();
+    },
+    user: { // TRANSFORMEI EM OBJETO
+      handler() {
+        console.log(this.user);
+      },
+      deep: true
+    },
+  },
   computed: {
     fullName() {
       return `${this.user.firstName} ${this.user.lastName}`
@@ -104,6 +115,13 @@ export default {
     },
     digitei(event) {
       console.log('digitei no form', event.target.value)
+    },
+    saveUserName() {
+      console.log('Ajax');
+      console.log(this.name);
+    },
+    changePageCount() {
+      console.log('changePageCount');
     }
   }
 }
