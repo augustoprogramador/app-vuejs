@@ -3,11 +3,13 @@
   {{ name }}<br/><br/>
   {{ user.firstName }}<br/><br/>
   {{ admin.admin }}<br/><br/>
+  <br/>
+  Nome Completo: {{ fullName }} <button @click="user.firstName = 'Ludimila'">Atualizar nome</button>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import { reactive, ref } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 
 export default {
@@ -15,6 +17,14 @@ export default {
   components: {
     HelloWorld
   },
+  // Options API
+  /**
+   * computed: {
+   *    fullName() {
+   *      return '';
+   *    }
+   * }
+   */
   // Alternativa ao option API que só pode criar atributos reativos
   setup() { // composition API permite controlar o que desejamos que seja reativo
     let name = 'Augusto';
@@ -37,10 +47,21 @@ export default {
       admin.value.admin = 'XXXXXX';
     }
 
+    const fullName = computed(() => {
+      return `${user.firstName} ${user.lastName}`
+    });
+
+    watch(admin, () => {
+      console.log('estou de olho');
+    });
+    // }, {deep: true}); // para observar profundamente, não necessário quando a variável for reactive()
+    // Outra opção seria retornar o atributo que queremos observar: () => admin.value.firstName
+
     return {
       name,
       user,
       admin,
+      fullName,
       changeName,
     }
   }
