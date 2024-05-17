@@ -1,7 +1,8 @@
 <template>
   <img @click="changeName()" alt="Vue logo" src="./assets/logo.png">
-  {{ name }}
-  {{ admin.admin }}
+  {{ name }}<br/><br/>
+  {{ user.firstName }}<br/><br/>
+  {{ admin.admin }}<br/><br/>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -24,8 +25,8 @@ export default {
     });
 
     const admin = ref({
-      admin: 'Augusto',
-      login: 'Camargo'
+      admin: 'Admin',
+      login: 'MASTER'
     });
 
     const changeName = () => {
