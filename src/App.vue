@@ -1,21 +1,25 @@
 <template>
+  <AppHook v-if="showAppHook"/>
+  <br/>
+  <br/>
+  <button @click="showAppHook = !showAppHook">Destruir Hook</button>
+  <br/>
   <img @click="changeName()" alt="Vue logo" src="./assets/logo.png">
   {{ name }}<br/><br/>
   {{ user.firstName }}<br/><br/>
   {{ admin.admin }}<br/><br/>
   <br/>
   Nome Completo: {{ fullName }} <button @click="user.firstName = 'Ludimila'">Atualizar nome</button>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
 import { computed, reactive, ref, watch } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import AppHook from './components/AppHook.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AppHook
   },
   // Options API
   /**
@@ -38,6 +42,8 @@ export default {
       admin: 'Admin',
       login: 'MASTER'
     });
+
+    const showAppHook = ref(true);
 
     const changeName = () => {
       name = 'Augusto Camargo';
@@ -62,6 +68,7 @@ export default {
       user,
       admin,
       fullName,
+      showAppHook,
       changeName,
     }
   }
